@@ -20,8 +20,12 @@ jobs:
       - name: Default user
         run: whoami
         
+      - name: Export build branch
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: branch_name
+        
       - name: create dir  
-        run: mkdir newdir
+        run: mkdir newdir2
         
       - name: Sudo user
         run: sudo -u testUser -i whoami
