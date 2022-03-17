@@ -20,6 +20,9 @@ jobs:
       - name: Default user
         run: whoami
         
+      - name: create dir  
+        run: mkdir newdir
+        
       - name: Sudo user
         run: sudo -u testUser -i whoami
 
