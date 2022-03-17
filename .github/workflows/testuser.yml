@@ -1,0 +1,31 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  create:
+   
+jobs:
+  testUserChange:
+    name: Test active user
+    runs-on: [self-hosted]
+        
+    steps:
+      - name: Default user
+        run: whoami
+        
+      - name: Sudo user
+        run: sudo -u testUser -i whoami
+
+      - name: Should be default user again
+        run: whoami
+
+      - name: Maybe interactive shell like in first attempt
+        run: sudo -u testUser -i
+
+      - name: Who am I now
+        run: whoami
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
